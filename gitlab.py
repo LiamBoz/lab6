@@ -4,6 +4,14 @@ def encode():
         new_password += str(int(num) + 3)
     return new_password
 
+def decode(password):
+    password_decoded = []
+    for letter in password:
+        new_letter = str((int(letter) - 3) % 10)
+        password_decoded.append(new_letter)
+
+    password_decoded = ''.join(password_decoded)
+    return password_decoded
 
 
 if __name__ == "__main__":
@@ -14,7 +22,7 @@ if __name__ == "__main__":
             new_password = encode()
             print("Your password has been encoded and stored!\n")
         elif user_input == 2:
-            print(f"The encoded password is {new_password}, and the original password is {user_password}.\n")
+            print(f"The encoded password is {password_decoded}, and the original password is {password}.\n")
         elif user_input == 3:
             break
 
